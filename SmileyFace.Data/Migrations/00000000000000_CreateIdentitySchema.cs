@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace SmileyFace.MVC.Data.Migrations
+namespace SmileyFace.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using SmileyFace.MVC.Models;
+using SmileyFace.Models;
 
 namespace SmileyFace.MVC.Controllers;
 

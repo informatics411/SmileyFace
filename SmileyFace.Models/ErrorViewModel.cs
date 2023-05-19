@@ -1,4 +1,4 @@
-﻿namespace SmileyFace.MVC.Models;
+﻿namespace SmileyFace.Models;
 
 public class ErrorViewModel
 {
