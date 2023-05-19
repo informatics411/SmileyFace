@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using SmileyFace.MVC.Data;
+using SmileyFace.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
