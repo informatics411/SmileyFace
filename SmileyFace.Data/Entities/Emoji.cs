@@ -1,5 +1,5 @@
 ﻿using System;
-namespace SmileyFacePOC.Data.Entities
+namespace SmileyFace.Data.Entities
 {
 	public class Emoji
 	{

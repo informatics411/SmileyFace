@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SmileyFacePOC.Data.Entities
+namespace SmileyFace.Data.Entities
 {
 	public class SessionProfile
 	{
