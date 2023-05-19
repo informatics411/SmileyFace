@@ -1,18 +1,19 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SmileyFace.Data.Entities
 {
-	public class GameProfile
+	public class IdeaMapProfile
 	{
-		public GameProfile()
+		public IdeaMapProfile()
 		{
 		}
-
+        [Key]
 		public int Id { get; set; }
 		[ForeignKey("SessionProfile")]	
 		public int SessionProfileId { get; set; }
-		public List<Single> SinglesList { get; set; } = new List<Single>();
+		public List<IdeaChain> IdeaChains { get; set; } = new List<IdeaChain>();
 
 	}
     //public class Grid

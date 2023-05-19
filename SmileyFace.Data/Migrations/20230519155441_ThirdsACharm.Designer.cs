@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmileyFace.Data;
 
@@ -11,9 +12,11 @@ using SmileyFace.Data;
 namespace SmileyFace.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230519155441_ThirdsACharm")]
+    partial class ThirdsACharm
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -224,67 +227,7 @@ namespace SmileyFace.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("SmileyFace.Data.Entities.Emoji", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Alt1Meaning")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Alt2Meaning")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Alt3Meaning")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Alt4Meaning")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Alt5Meaning")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Direction")
-                        .HasColumnType("int");
-
-                    b.Property<int>("EmojiRank")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Genre")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("IsGuardian")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsNested")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("Location")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Meaning")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Unicode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Emojis");
-                });
-
-            modelBuilder.Entity("SmileyFace.Data.Entities.IdeaChain", b =>
+            modelBuilder.Entity("SmileyFace.Data.Entities.Cluster", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -302,17 +245,51 @@ namespace SmileyFace.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("IdeaMapProfileId")
+                    b.HasKey("Id");
+
+                    b.ToTable("Clusters");
+                });
+
+            modelBuilder.Entity("SmileyFace.Data.Entities.Emoji", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("EmojiGenre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EmojiLocation")
+                        .HasColumnType("int");
+
+                    b.Property<string>("EmojiMeaning")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EmojiRank")
+                        .HasColumnType("int");
+
+                    b.Property<string>("EmojiUnicode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("GameProfileId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NextEmoji")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdeaMapProfileId");
+                    b.HasIndex("GameProfileId");
 
-                    b.ToTable("IdeaChains");
+                    b.ToTable("Emojis");
                 });
 
-            modelBuilder.Entity("SmileyFace.Data.Entities.IdeaMapProfile", b =>
+            modelBuilder.Entity("SmileyFace.Data.Entities.GameProfile", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -327,7 +304,7 @@ namespace SmileyFace.Data.Migrations
 
                     b.HasIndex("SessionProfileId");
 
-                    b.ToTable("IdeaMaps");
+                    b.ToTable("Game");
                 });
 
             modelBuilder.Entity("SmileyFace.Data.Entities.SessionProfile", b =>
@@ -402,30 +379,30 @@ namespace SmileyFace.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SmileyFace.Data.Entities.IdeaChain", b =>
+            modelBuilder.Entity("SmileyFace.Data.Entities.Emoji", b =>
                 {
-                    b.HasOne("SmileyFace.Data.Entities.IdeaMapProfile", null)
-                        .WithMany("IdeaChains")
-                        .HasForeignKey("IdeaMapProfileId");
+                    b.HasOne("SmileyFace.Data.Entities.GameProfile", null)
+                        .WithMany("EmojisList")
+                        .HasForeignKey("GameProfileId");
                 });
 
-            modelBuilder.Entity("SmileyFace.Data.Entities.IdeaMapProfile", b =>
+            modelBuilder.Entity("SmileyFace.Data.Entities.GameProfile", b =>
                 {
                     b.HasOne("SmileyFace.Data.Entities.SessionProfile", null)
-                        .WithMany("IdeasMapped")
+                        .WithMany("GamesPlayed")
                         .HasForeignKey("SessionProfileId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SmileyFace.Data.Entities.IdeaMapProfile", b =>
+            modelBuilder.Entity("SmileyFace.Data.Entities.GameProfile", b =>
                 {
-                    b.Navigation("IdeaChains");
+                    b.Navigation("EmojisList");
                 });
 
             modelBuilder.Entity("SmileyFace.Data.Entities.SessionProfile", b =>
                 {
-                    b.Navigation("IdeasMapped");
+                    b.Navigation("GamesPlayed");
                 });
 #pragma warning restore 612, 618
         }
