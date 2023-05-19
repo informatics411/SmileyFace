@@ -15,4 +15,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.5" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmileyFace.Services\SmileyFace.Services.csproj" />
+  </ItemGroup>
 </Project>
