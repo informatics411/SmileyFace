@@ -13,9 +13,12 @@ public class ApplicationDbContext : IdentityDbContext
     {
     }
 
-    public DbSet<IdeaChain> IdeaChains { get; set; }
+    public DbSet<AllPositionsMapper> AllPositions { get; set; }
     public DbSet<Emoji> Emojis { get; set; }
-    public DbSet<IdeaMapProfile> IdeaMaps { get; set; }
-    public DbSet<SessionProfile> SessionProfiles { get; set; }
+    public DbSet<EmojiPosition> EmojiPositions { get; set; }
+    public DbSet<EmojiPositionLinkedNode> EmojiPositionLinkedNodes { get; set; }
+    public DbSet<ProfileIdeaMap> IdeaMaps { get; set; }
+    public DbSet<ProfileSession> SessionProfiles { get; set; }
+    public DbSet<IdeaChain> IdeaChains { get; set; }
 }
 

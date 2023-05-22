@@ -23,7 +23,7 @@ namespace SmileyFace.Data.Entities
 
         public int? NodeId { get; set; }
  //region navigation properties [update
-        public LinkedEmojiNode Node { get; set; }
+        public EmojiPositionLinkedNode Node { get; set; }
 //
 
 

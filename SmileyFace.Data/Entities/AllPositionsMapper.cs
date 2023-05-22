@@ -1,9 +1,17 @@
-﻿using System;
+﻿
+using System;
+using System.ComponentModel.DataAnnotations;
 namespace SmileyFace.Data.Entities
+
 {
     public class AllPositionsMapper
-
     {
+        public AllPositionsMapper()
+        { }
+
+        [Key]
+        public int Id { get; set; }
+
         private int[,] board;
         private int rows;
         private int columns;
@@ -25,5 +33,9 @@ namespace SmileyFace.Data.Entities
             board[row, column] = value;
         }
     }
+
 }
+        
+
+    
 

@@ -13,7 +13,7 @@ namespace SmileyFace.Data.Entities
 		public int Id { get; set; }
 		[ForeignKey("ProfileSession")]	
 		public int ProfileSessionId { get; set; }
-		public List<IdeaChain> IdeaChains { get; set; } = new List<IdeaChain>();
+		//public List<IdeaChain> IdeaChains { get; set; } = new List<IdeaChain>();
 
 	}
 

@@ -14,7 +14,7 @@ namespace SmileyFace.Data.Entities
 			[ForeignKey("AspNetUsers")]
 			public string IdentityUserId { get; set; }
 			public string UserEmoji { get; set; } //Emoji avatar for user
-			public List<IdeaMapProfile> IdeasMapped { get; set; }
+			public List<ProfileIdeaMap> IdeasMapped { get; set; }
 	}
 }
 
