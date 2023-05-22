@@ -1,0 +1,2 @@
+INSERT into Emojis (Unicode, Itself, Genre, AltCategory1, Meaning,  Alt1Meaning, Alt2Meaning, Alt3Meaning)
+Values ('U+1F3A9','🎩','Object', 'Prom', 'Top hat', 'Luck', 'Wedding', 'Green Acres' )

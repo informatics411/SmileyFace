@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SmileyFace.Data.Entities
 {
-	public class SessionProfile
+	public class ProfileSession
 	{
-		public SessionProfile()
+		public ProfileSession()
 		{
 		}
 			[Key]

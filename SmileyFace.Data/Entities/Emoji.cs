@@ -12,17 +12,30 @@ namespace SmileyFace.Data.Entities
 		[Key]
 		public int Id { get; set; }
 
-        public int EmojiRank { get; set; }
-
         public string Unicode { get; set; }
         public string Itself { get; set; }
         public string Genre { get; set; }
         public string AltCategory1 { get; set; }
-        public string Meaning { get; set; }
+        public string? Meaning { get; set; }
         public string? Alt1Meaning { get; set; }
         public string? Alt2Meaning { get; set; }
         public string? Alt3Meaning { get; set; }
 
+        public int? NodeId { get; set; }
+ //region navigation properties [update
+        public LinkedEmojiNode Node { get; set; }
+//
+
+
+        //# navigation properties [original
+        //        public int CollectionId { get; set; }
+        //        public IdeaChain Chain { get; set; }
+        //        public int? PreviewId { get; set; }
+        //        public Emoji Preview { get; set; }
+        //        public int? Next { get; set; }
+        //        public Emoji Next { get; set; }
+
+        //v2s
         //public string? Alt4Meaning { get; set; }
         //public string? Alt5Meaning { get; set; }
 
@@ -32,9 +45,6 @@ namespace SmileyFace.Data.Entities
 
         //[ForeignKey("IdeaMap")]
         //public int IsGuardian { get; set; } //is nest guardian
-
-        
-        
     }
 }
 
