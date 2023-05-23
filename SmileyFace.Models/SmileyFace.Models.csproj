@@ -16,4 +16,16 @@
     <ProjectReference Include="..\SmileyFace.Data\SmileyFace.Data.csproj" />
     <ProjectReference Include="..\SmileyFace.Services\SmileyFace.Services.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="EmojiPosition\" />
+    <None Remove="EmojiPositionLinkedNode\" />
+    <None Remove="AllPositionsMapper\" />
+    <None Remove="IdeaCluster\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EmojiPosition\" />
+    <Folder Include="EmojiPositionLinkedNode\" />
+    <Folder Include="AllPositionsMapper\" />
+    <Folder Include="IdeaCluster\" />
+  </ItemGroup>
 </Project>

@@ -1,2 +1,11 @@
 INSERT into Emojis (Unicode, Itself, Genre, AltCategory1, Meaning,  Alt1Meaning, Alt2Meaning, Alt3Meaning)
 Values ('U+1F3A9','🎩','Object', 'Prom', 'Top hat', 'Luck', 'Wedding', 'Green Acres' )
+
+INSERT into Emojis (Unicode, Itself, Genre, AltCategory1, Meaning,  Alt1Meaning, Alt2Meaning, Alt3Meaning)
+Values ('U+1F417','🐗','Animals & Nature', 'Problem', 'Boar', 'Wild pig', 'Has Tusks', 'The South' )
+
+INSERT into Emojis (Unicode, Itself, Genre, AltCategory1, Meaning,  Alt1Meaning, Alt2Meaning, Alt3Meaning)
+Values ('U+1F9BA','🦺','Object', 'Work', 'Safety vest', 'Highways', 'Danger', 'Safety' )
+
+INSERT into Emojis (Unicode, Itself, Genre, AltCategory1, Meaning,  Alt1Meaning, Alt2Meaning, Alt3Meaning)
+Values ('U+1F416','🐖','Animals & Nature', 'Food', 'Pig', 'Far ', 'Bacon', 'Arnold' )

@@ -13,6 +13,7 @@ namespace SmileyFace.Data.Entities
 		public int EmojiId { get; set; }
 		public int Row { get; set; }
 		public int Column { get; set; }
+        public int Direction { get; set; }
     }
 }
 

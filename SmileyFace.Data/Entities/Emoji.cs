@@ -22,10 +22,11 @@ namespace SmileyFace.Data.Entities
         public string? Alt3Meaning { get; set; }
 
         public int? NodeId { get; set; }
- //region navigation properties [update
+        //region navigation properties [update
         public EmojiPositionLinkedNode Node { get; set; }
-//
 
+
+        //testing other ideas for how to capture useful data
 
         //# navigation properties [original
         //        public int CollectionId { get; set; }

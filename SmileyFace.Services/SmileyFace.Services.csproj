@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="EmojiPosition\" />
+    <None Remove="EmojiPositionLinkedNode\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EmojiPosition\" />
+    <Folder Include="EmojiPositionLinkedNode\" />
+  </ItemGroup>
 </Project>

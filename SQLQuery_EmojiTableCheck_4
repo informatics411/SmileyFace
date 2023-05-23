@@ -1,0 +1,39 @@
+INSERT into Emojis (Unicode, Itself, Genre, AltCategory1, Meaning,  Alt1Meaning, Alt2Meaning, Alt3Meaning)
+Values ('U+1F3A9','🎩','Object', 'Prom', 'Top hat', 'Luck', 'Wedding', 'Green Acres' )
+
+INSERT into Emojis (Unicode, Itself, Genre, AltCategory1, Meaning,  Alt1Meaning, Alt2Meaning, Alt3Meaning)
+Values ('U+1F417','🐗','Animals & Nature', 'Problem', 'Boar', 'Wild pig', 'Has Tusks', 'The South' )
+
+INSERT into Emojis (Unicode, Itself, Genre, AltCategory1, Meaning,  Alt1Meaning, Alt2Meaning, Alt3Meaning)
+Values ('U+1F9BA','🦺','Object', 'Work', 'Safety vest', 'Highways', 'Danger', 'Safety' )
+
+INSERT into Emojis (Unicode, Itself, Genre, AltCategory1, Meaning,  Alt1Meaning, Alt2Meaning, Alt3Meaning)
+Values ('U+1F416','🐖','Animals & Nature', 'Food', 'Pig', 'Far ', 'Bacon', 'Arnold' )
+
+INSERT into Emojis (Unicode, Itself, Genre, AltCategory1, Meaning,  Alt1Meaning, Alt2Meaning, Alt3Meaning)
+Values ('U+1F95C','🥜','Food & Vegetable', 'Crop', 'Peanut', 'Salty ', 'Peanut butter', 'Jimmy Carter' )
+
+INSERT into Emojis (Unicode, Itself, Genre, AltCategory1, Meaning,  Alt1Meaning, Alt2Meaning, Alt3Meaning)
+Values ('U+1F95A','🥚','Food Prepared', 'Hatched', 'Egg', 'Free range ', 'Dozen', 'Keep refrigerated' )
+
+INSERT into Emojis (Unicode, Itself, Genre, AltCategory1, Meaning,  Alt1Meaning, Alt2Meaning, Alt3Meaning)
+Values ('U+1F40D','🐍','Animals & Nature', 'Slithery', 'Snake', 'Evil - Adam/Eve story ', 'Patriotic - Don’t Tread On Me', 'Never seen one live' )
+
+INSERT into Emojis (Unicode, Itself, Genre, AltCategory1, Meaning,  Alt1Meaning, Alt2Meaning, Alt3Meaning)
+Values ('U+1F414','🐔','Animals & Nature', 'Backyard', 'Chicken', 'Lays eggs ', 'Lots of feathers', '2 steps forward, 1 step back' )
+
+INSERT into Emojis (Unicode, Itself, Genre, AltCategory1, Meaning,  Alt1Meaning, Alt2Meaning, Alt3Meaning)
+Values ('U+1F9D1','🧑‍🌾','Person Role', 'Profession', 'Farmer (male)', 'Lives in country', 'Family farm', 'Works 2 other jobs' )
+
+INSERT into Emojis (Unicode, Itself, Genre, AltCategory1, Meaning,  Alt1Meaning, Alt2Meaning, Alt3Meaning)
+Values ('U+1F468','👨‍🦲','Person Role', 'Shaved head', 'Bald', 'JMV Universal', 'Bruce Willis', 'Jason Stratham' )
+
+INSERT into Emojis (Unicode, Itself, Genre, AltCategory1, Meaning,  Alt1Meaning, Alt2Meaning, Alt3Meaning)
+Values ('U+1F451','👑','Object', 'Royal', 'Crown', 'King Charles III', 'Princess Diana', 'George III' )
+
+INSERT into Emojis (Unicode, Itself, Genre, AltCategory1, Meaning,  Alt1Meaning, Alt2Meaning, Alt3Meaning)
+Values ('U+1F427','🐧','Animals & Nature', 'Antartica', 'Penguin', 'The Penguin', 'Snappy Dresser', 'Good parent' )
+
+INSERT into Emojis (Unicode, Itself, Genre, AltCategory1, Meaning,  Alt1Meaning, Alt2Meaning, Alt3Meaning)
+Values ('U+1F57A','🕺','Person Activity', 'Disco', 'Man dancing', 'John Travolta', 'Disco ball', 'Techno' )
+
