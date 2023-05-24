@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using SmileyFace.Data;
 using SmileyFace.Data.Entities;
 using SmileyFace.Models.Emoji;
@@ -9,41 +10,55 @@ namespace SmileyFace.Services.EmojiPosition
     public class EmojiPositionService : IEmojiPositionService
     {
         private readonly ApplicationDbContext _dbContext;
+
         public EmojiPositionService(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
-        public EmojiPositionService()
-        {
-        }
-        public async Task<bool> AssignEmojiSpaceOnMapAsync(AssignEmojiSpaceOnMap request) //assign position on board, an update to Emoji
-        {
 
-            var placeEmoji = new SmileyFace.Data.Entities.EmojiPosition()
+        public async Task<bool> AssignEmojiSpaceOnMapAsync(AssignEmojiSpaceOnMap request)
+        {
+            var placeEmoji = new EmojiPositionEntity
             {
                 EmojiItself = request.EmojiItself,
                 Row = request.EmojiRow,
-                Column = request.EmojiColumn,
+                Column = request.EmojiColumn
             };
-            Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry<Data.Entities.EmojiPosition> entityEntry = _dbContext.EmojiPositions.Add(placeEmoji);
+
+            _dbContext.EmojiPositions.Add(placeEmoji);
 
             var numberOfChanges = await _dbContext.SaveChangesAsync();
             return numberOfChanges == 1;
         }
 
-        public async Task<bool> SetEmojiDirectionAsync(SetEmojiDirection request) //give a direction to an emoji
+        public async Task<bool> SetEmojiDirectionAsync(SetEmojiDirection request)
         {
-            var emojiPosition = new SmileyFace.Data.Entities.EmojiPosition();
-            if (emojiPosition.Direction != null)
-            { 
-                HasDirection = false;
-                var numberOfChanges = await _dbContext.SaveChangesAsync();
-                return numberOfChanges == 1;
+            var emojiPosition = await _dbContext.EmojiPositions.FindAsync(request.EmojiId);
+
+            if (emojiPosition == null)
+            {
+                // Handle the case where the emoji position does not exist
+                return false;
             }
-            return true;
+
+            if (emojiPosition.Direction != null)
+            {
+                // The emoji already has a direction assigned
+                return false;
+            }
+
+            emojiPosition.Direction = request.EmojiDirection;
+
+            var numberOfChanges = await _dbContext.SaveChangesAsync();
+            return numberOfChanges == 1;
         }
 
         public Task<bool> AssignEmojiSpaceOnMapAsync(ChooseEmoji chooseEmoji)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> ReturnEmojiToRackAsync(ReturnEmojiToRack returnEmoji)
         {
             throw new NotImplementedException();
         }

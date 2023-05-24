@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 namespace SmileyFace.Data.Entities
 
 {
-    public class MapperOfAllSpaces
+    public class MapperOfAllSpacesEntity
     {
-        public MapperOfAllSpaces()
+        public MapperOfAllSpacesEntity()
         { }
 
         [Key]
@@ -16,7 +16,7 @@ namespace SmileyFace.Data.Entities
         private int rows;
         private int columns;
 
-        public MapperOfAllSpaces(int numRows, int numColumns)
+        public MapperOfAllSpacesEntity(int numRows, int numColumns)
         {
             rows = numRows;
             columns = numColumns;

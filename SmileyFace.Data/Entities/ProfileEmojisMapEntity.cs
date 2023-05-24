@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SmileyFace.Data.Entities
 {
-    public class ProfileEmojisMap
+    public class ProfileEmojisMapEntity
 	{
 
     [Key]
@@ -13,7 +13,7 @@ namespace SmileyFace.Data.Entities
     [ForeignKey("ProfileSession")]
     public int ProfileSessionId { get; set; }
 
-    public List<EmojisCluster> EmojisClusters { get; set; } = new List<EmojisCluster>();
+    public List<EmojisClusterEntity> EmojisClusters { get; set; } = new List<EmojisClusterEntity>();
 	}
 }
 

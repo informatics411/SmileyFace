@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SmileyFace.Data.Entities
 {
-	public class EmojiPosition
+	public class EmojiPositionEntity
 	{
-		public EmojiPosition()
+		public EmojiPositionEntity()
 		{
 		}
 		public int Id { get; set; }

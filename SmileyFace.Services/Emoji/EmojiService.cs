@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SmileyFace.Data;
 using SmileyFace.Data.Entities;
@@ -10,86 +12,91 @@ namespace SmileyFace.Services.Emoji
     public class EmojiService : IEmojiService
     {
         private readonly ApplicationDbContext _dbContext;
-        public EmojiService(ApplicationDbContext dbContext) 
+
+        public EmojiService(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
-        public EmojiService()
+
+        public async Task<IEnumerable<ChooseEmoji>> ChooseEmojiAsync(ChooseEmoji chooseEmoji)
         {
-        }
-        public async Task<SmileyFace.Data.Entities.Emoji> ChooseEmojiAsync(ChooseEmoji request)
-        {
-            var chooseEmoji = new SmileyFace.Data.Entities.Emoji
+            var emojiEntity = new EmojiEntity
             {
-                Itself = request.EmojiItself,
-                Meaning = request.EmojiMeaning,
+                Itself = chooseEmoji.EmojiItself,
+                Meaning = chooseEmoji.EmojiMeaning
             };
 
-            var newEmoji = _dbContext.Emojis.Add(chooseEmoji).Entity;
-
+            _dbContext.Emojis.Add(emojiEntity);
             await _dbContext.SaveChangesAsync();
-            return newEmoji;
+
+            return new List<ChooseEmoji> { chooseEmoji };
         }
 
         public async Task<bool> EmojiUpdateAsync(UpdateEmoji request)
         {
+            var emoji = await _dbContext.Emojis.FirstOrDefaultAsync(e => e.Itself == request.Itself);
 
-            var Emoji = await GetEmoji().FindAsync(request.Itself);
-
-            if (Emoji?.Itself != request.Itself)
+            if (emoji == null)
                 return false;
 
-            Emoji.AltGenre1 = request.AltGenre1;
-            Emoji.Alt1Meaning = request.Alt1Meaning;
-            Emoji.Alt2Meaning = request.Alt2Meaning;
-            Emoji.Alt3Meaning = request.Alt3Meaning;
-
-
-            var numberOfChanges = await _dbContext.SaveChangesAsync();
-            return numberOfChanges == 1;
-        }
-
-        private object GetEmoji()
-        {
-            return _dbContext.Emoji;
-        }
-
-        public async Task<IEnumerable<FindByEmojiItselfAsync>> FindByEmojiItself(ListEmojiDetail request)
-      {
-         var emoji = await _dbContext.Emojis.FindAsync(request.Itself);
-
-            if (emoji?.Itself != request.Itself)
-                
-            
             emoji.AltGenre1 = request.AltGenre1;
             emoji.Alt1Meaning = request.Alt1Meaning;
             emoji.Alt2Meaning = request.Alt2Meaning;
             emoji.Alt3Meaning = request.Alt3Meaning;
 
-
-            var numberOfChanges = await _dbContext.SaveChangesAsync();
-            return numberOfChanges == 1;
+            await _dbContext.SaveChangesAsync();
+            return true;
         }
 
-    
+        public async Task<IEnumerable<EmojiEntity>> FindByEmojiItselfAsync(ListEmojiDetail request)
+        {
+            var emoji = await _dbContext.Emojis.FindAsync(request.Itself);
 
+            if (emoji == null)
+                return null;
 
+            emoji.AltGenre1 = request.AltGenre1;
+            emoji.Alt1Meaning = request.Alt1Meaning;
+            emoji.Alt2Meaning = request.Alt2Meaning;
+            emoji.Alt3Meaning = request.Alt3Meaning;
 
+            await _dbContext.SaveChangesAsync();
+            return new List<EmojiEntity> { emoji };
+        }
 
-        //public async Task<IEnumerable<FindEmojiByMeaningAsync>> FindEmojiByMeaningAsync(string EmojiMeaning)//v2
-        //{
-        //}
+        public async Task<IEnumerable<ListEmojiDetail>> ListEmojiiDetailAsync(ListEmojiDetail emojiDetail)
+        {
+            var emojis = await _dbContext.Emojis.ToListAsync();
 
-        //public async Task<IEnumerable<FindEmojiByGenreAsync>>FindEmojiByGenreAsync(string EmojiGenre) //v2
-        //{
-        //}
+            // Apply filtering based on the emoji detail properties
+            if (!string.IsNullOrEmpty(emojiDetail.AltGenre1))
+            {
+                emojis = emojis.Where(e => e.AltGenre1 == emojiDetail.AltGenre1).ToList();
+            }
 
-        //public class EmojiKeyboard helper class? Keyboard appears, search by meaing, genre?
+            if (!string.IsNullOrEmpty(emojiDetail.Alt1Meaning))
+            {
+                emojis = emojis.Where(e => e.Alt1Meaning == emojiDetail.Alt1Meaning).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(emojiDetail.Alt2Meaning))
+            {
+                emojis = emojis.Where(e => e.Alt2Meaning == emojiDetail.Alt2Meaning).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(emojiDetail.Alt3Meaning))
+            {
+                emojis = emojis.Where(e => e.Alt3Meaning == emojiDetail.Alt3Meaning).ToList();
+            }
+
+            return emojis.Select(e => new ListEmojiDetail
+            {
+                Itself = e.Itself,
+                AltGenre1 = e.AltGenre1,
+                Alt1Meaning = e.Alt1Meaning,
+                Alt2Meaning = e.Alt2Meaning,
+                Alt3Meaning = e.Alt3Meaning
+            });
+        }
     }
 }
-
-
-
-
-
-

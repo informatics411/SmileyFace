@@ -6,9 +6,9 @@ namespace SmileyFace.Data.Entities
 
 	//Now Subsumed By Linked List EmojiPositionLinkedNode?
 {
-	public class EmojisCluster
+	public class EmojisClusterEntity
 {
-	public EmojisCluster()
+	public EmojisClusterEntity()
 	{
 	}
 	[Key]
