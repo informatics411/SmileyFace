@@ -14,7 +14,4 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SmileyFace.Services\SmileyFace.Services.csproj" />
-  </ItemGroup>
 </Project>

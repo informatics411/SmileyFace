@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using SmileyFace.Data;
+using SmileyFace.Services.Emoji;
+using SmileyFace.Services.EmojiPosition;
+using SmileyFace.Services.EmojisCluster;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +17,9 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IEmojiService, EmojiService>();
+builder.Services.AddScoped<IEmojiPositionService, EmojiPositionService>();
 
 var app = builder.Build();
 

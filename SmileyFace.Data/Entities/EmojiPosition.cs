@@ -10,10 +10,10 @@ namespace SmileyFace.Data.Entities
 		}
 		public int Id { get; set; }
 		[ForeignKey("Emoji")]
-		public int EmojiId { get; set; }
-		public int Row { get; set; }
-		public int Column { get; set; }
-        public int Direction { get; set; }
+		public int EmojiItself {get; set;}
+		public int? Row { get; set; }
+		public int? Column { get; set; }
+        public int? Direction { get; set; }
     }
 }
 

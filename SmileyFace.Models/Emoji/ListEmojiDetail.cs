@@ -1,9 +1,9 @@
 ﻿using System;
 namespace SmileyFace.Models.Emoji
 {
-	public class EmojiDetail
+	public class ListEmojiDetail
 	{
-		public EmojiDetail()
+		public ListEmojiDetail()
 		{
 		}
         public string Unicode { get; set; }

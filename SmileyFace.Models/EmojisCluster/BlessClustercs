@@ -1,10 +1,11 @@
 ﻿using System;
 namespace SmileyFace.Models.IdeaCluster
 {
-	public class IdeaCluster
+	public class BlessCluster
 	{
-		public IdeaCluster()
+		public BlessCluster()
 		{
+		
 		}
 
 	}

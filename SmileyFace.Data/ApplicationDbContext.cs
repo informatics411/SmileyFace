@@ -52,12 +52,13 @@ public class ApplicationDbContext : IdentityDbContext
     //    return modelBuilder.Entity<Product>();
     //}
 
-    public DbSet<AllPositionsMapper> AllPositions { get; set; }
+    public DbSet<MapperOfAllSpaces> AllPositions { get; set; }
     public DbSet<Emoji> Emojis { get; set; }
     public DbSet<EmojiPosition> EmojiPositions { get; set; }
-    public DbSet<EmojiPositionLinkedNode> EmojiPositionLinkedNodes { get; set; }
-    public DbSet<ProfileIdeasMap> IdeaMaps { get; set; }
+    // public DbSet<EmojiPositionLinkedNode> EmojiPositionLinkedNodes { get; set; }
+    public DbSet<ProfileEmojisMap> IdeaMaps { get; set; }
     public DbSet<ProfileSession> SessionProfiles { get; set; }
-    public DbSet<EmojisCluster> IdeaClusters { get; set; }
+    public DbSet<EmojisCluster> EmojisClusters { get; set; }
+    public object Emoji { get; set; }
 }
 

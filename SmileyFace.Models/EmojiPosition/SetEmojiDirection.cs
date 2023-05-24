@@ -4,9 +4,9 @@ using System.Reflection.Metadata;
 
 namespace SmileyFace.Models.Emoji
 {
-	public class EmojiDirection
+	public class SetEmojiDirection
 	{
-		public EmojiDirection()
+		public SetEmojiDirection()
 		{
 		}
         [ForeignKey("Emoji")]

@@ -7,6 +7,9 @@ namespace SmileyFace.Models.Emoji
 		{
 		}
 		public int EmojiId { get; set; }
+		public string EmojiItself { get; set;}
+
+		public string EmojiMeaning { get; set;}
 	}
 }
 

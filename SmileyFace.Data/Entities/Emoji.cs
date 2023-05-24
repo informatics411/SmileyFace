@@ -21,9 +21,11 @@ namespace SmileyFace.Data.Entities
         public string? Alt2Meaning { get; set; }
         public string? Alt3Meaning { get; set; }
 
+        public bool HasDirection { get; set;}
+
         public int? NodeId { get; set; }
         //region navigation properties [update
-        public EmojiPositionLinkedNode Node { get; set; }
+        // public node EmojiPositionLinkedNode NodeId { get; set; }
 
 
         //testing other ideas for how to capture useful data

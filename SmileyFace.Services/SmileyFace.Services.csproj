@@ -9,9 +9,17 @@
   <ItemGroup>
     <None Remove="EmojiPosition\" />
     <None Remove="EmojiPositionLinkedNode\" />
+    <None Remove="Emoji\" />
+    <None Remove="AllPositionsMapper\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="EmojiPosition\" />
     <Folder Include="EmojiPositionLinkedNode\" />
+    <Folder Include="Emoji\" />
+    <Folder Include="AllPositionsMapper\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmileyFace.Data\SmileyFace.Data.csproj" />
+    <ProjectReference Include="..\SmileyFace.Models\SmileyFace.Models.csproj" />
   </ItemGroup>
 </Project>

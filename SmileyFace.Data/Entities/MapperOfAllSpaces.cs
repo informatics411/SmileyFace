@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 namespace SmileyFace.Data.Entities
 
 {
-    public class AllPositionsMapper
+    public class MapperOfAllSpaces
     {
-        public AllPositionsMapper()
+        public MapperOfAllSpaces()
         { }
 
         [Key]
@@ -16,22 +16,14 @@ namespace SmileyFace.Data.Entities
         private int rows;
         private int columns;
 
-        public AllPositionsMapper(int numRows, int numColumns)
+        public MapperOfAllSpaces(int numRows, int numColumns)
         {
             rows = numRows;
             columns = numColumns;
             board = new int[rows, columns];
         }
 
-        public int GetCellValue(int row, int column)
-        {
-            return board[row, column];
-        }
-
-        public void SetCellValue(int row, int column, int value)
-        {
-            board[row, column] = value;
-        }
+     
     }
 
 }

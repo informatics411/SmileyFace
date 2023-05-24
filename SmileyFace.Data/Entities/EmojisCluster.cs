@@ -14,17 +14,28 @@ namespace SmileyFace.Data.Entities
 	[Key]
 	public int Id { get; set; }
 	[ForeignKey("Emoji")]
-	public int EmojiId { get; set; }
-	public string Meaning { get; set; } //Sentence-like catcatenation of intended Emoji meaning as used in cluster sequence
-	//public int [,] Row,Column { get; set; } //Remember: 1,1 is lowest, left most?
-	//public virtual List<int> EmojiNeighbors { get; set; }//adjacent emojis
+	public int EmojiItself{ get; set; }
+	public string EmojiMeaning { get; set; } //Sentence-like catcatenation of intended Emoji meaning as used in cluster sequence
+	
 
-	public ICollection<EmojiPosition> EmojiPositions { get; set; } //nextEmojiLocation + nextEmojiLocation + nextEmojiLocation?
+        public class EmojiPositionLinkedNode
+        {
+               [Key]
+        public int Id { get; set; }
+        public int? NextId { get; set; }
+        public int? PreviousId { get; set; }
+        }
+     
+    }
+
+    //public int [,] Row,Column { get; set; } //Remember: 1,1 is lowest, left most?
+    //public virtual List<int> EmojiNeighbors { get; set; }//adjacent emojis
+
+    //public ICollection<EmojiPosition> EmojiPositions { get; set; } //nextEmojiLocation + nextEmojiLocation + nextEmojiLocation?
 
 
-	//An ideaString means a Location+Direction; location only means untethered, unnested, unrelated and perhaps even unknown
+    //An ideaString means a Location+Direction; location only means untethered, unnested, unrelated and perhaps even unknown
 
-	//LinkedList
-}
+    //LinkedList
 }
 
